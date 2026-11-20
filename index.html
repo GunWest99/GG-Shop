@@ -55,7 +55,7 @@
     </div>
 
     <script>
-        const SERVER_URL = "http://78.154.103.41:12383/api/check"; // Твой сервер
+        const SERVER_URL = "http://78.154.103.41:12383/api/check"; // Твой сервер Wispbyte
 
         async function checkAccount() {
             const tagInput = document.getElementById('playerTag').value.trim();
@@ -71,7 +71,6 @@
                 if (data.error) {
                     alert("Ошибка: " + data.error);
                 } else {
-                    // Заполняем карточку данными
                     document.getElementById('playerName').innerText = data.name;
                     document.getElementById('trophies').innerText = data.trophies;
                     document.getElementById('highestTrophies').innerText = data.highestTrophies;
@@ -87,7 +86,7 @@
                     document.getElementById('resultCard').classList.remove('hidden');
                 }
             } catch (e) {
-                alert("Ошибка соединения с сервером.");
+                alert("Ошибка соединения с сервером. Проверь, запущен ли Wispbyte.");
             } finally {
                 document.getElementById('loading').classList.add('hidden');
             }
