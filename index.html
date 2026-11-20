@@ -55,8 +55,8 @@
     </div>
 
     <script>
-        // Используем прокси allorigins, который не требует ключей и работает стабильно
-        const SERVER_URL = "https://corsproxy.io/?url=http://78.154.103.41:12383/api/check";
+        // Вставляем твой адрес воркера
+        const SERVER_URL = "https://gg-shop.kirillstasevic10.workers.dev/?url=http://78.154.103.41:12383/api/check";
 
         async function checkAccount() {
             const tagInput = document.getElementById('playerTag').value.trim();
@@ -87,7 +87,7 @@
                     document.getElementById('resultCard').classList.remove('hidden');
                 }
             } catch (e) {
-                alert("Ошибка соединения с сервером. Проверь, запущен ли Wispbyte.");
+                alert("Ошибка соединения с сервером.");
             } finally {
                 document.getElementById('loading').classList.add('hidden');
             }
