@@ -55,8 +55,9 @@
     </div>
 
     <script>
-        // Вставляем твой адрес воркера
-        const SERVER_URL = "https://gg-shop.kirillstasevic10.workers.dev/?url=http://78.154.103.41:12383/api/check";
+        // Ссылка на твой воркер + параметры
+        const BASE_URL = "https://gg-shop.kirillstasevic10.workers.dev/";
+        const TARGET_SERVER = "http://78.154.103.41:12383/api/check";
 
         async function checkAccount() {
             const tagInput = document.getElementById('playerTag').value.trim();
@@ -65,8 +66,11 @@
             document.getElementById('loading').classList.remove('hidden');
             document.getElementById('resultCard').classList.add('hidden');
 
+            // Формируем правильную ссылку для запроса через воркер
+            const fullUrl = `${BASE_URL}?url=${TARGET_SERVER}&tag=${encodeURIComponent(tagInput)}`;
+
             try {
-                const response = await fetch(`${SERVER_URL}?tag=${encodeURIComponent(tagInput)}`);
+                const response = await fetch(fullUrl);
                 const data = await response.json();
 
                 if (data.error) {
